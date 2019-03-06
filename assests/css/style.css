@@ -1,0 +1,7 @@
+body{background-image: url(https://images-na.ssl-images-amazon.com/images/I/51ps2j9F5%2BL.jpg); background-repeat: none; margin: 0%;}
+.container{width: 900px; height:500px; background-image: url(http://www.fractalcamo.com/uploads/5/9/0/2/5902948/s189772745713394276_p1378_i246_w640.jpeg); background-color: #967059; border-style: double; border-color: black; margin-top:5%;}
+h1{text-align: center; font-family: 'Oldenburg', cursive; color: #ccac00; padding-top: 2%;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
+
+#timer{color: #ccac00; color-outline: white; font-size: 200%; text-align: center; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
+#questions{color: #ccac00; color-outline: white; font-size: 200%; text-align: center; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; margin: 5%}
+#answers{color: #ccac00; color-outline: white; font-size: 200%; text-align: center;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
