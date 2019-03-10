@@ -5,3 +5,6 @@ h1{text-align: center; font-family: 'Oldenburg', cursive; color: #ccac00; paddin
 #timer{color: #ccac00; color-outline: white; font-size: 200%; text-align: center; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
 #questions{color: #ccac00; color-outline: white; font-size: 200%; text-align: center; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; margin: 5%}
 #answers{color: #ccac00; color-outline: white; font-size: 200%; text-align: center;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}
+
+
+button{margin: 2%; color: white; background-color: #ccac00; outline:black;}
