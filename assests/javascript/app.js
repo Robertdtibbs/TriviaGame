@@ -4,69 +4,70 @@ var questionGroup =[
         question: "What is the largest country in Asia?",
         answerList: ["China", "India", "Japan", "Thailand",],
         answer: 0,
-        image: src = "assests\images\china.jpg",
+        answerText: "China",
+        image: src = "assests/images/china.jpg",
     
     },
     {
         question: "Which country is partially located in Europe?",
         answerList: ["Cambodia", "India", "Russia", "Vietnam",],
         answer: 2,
-        image: "assests\images\Russia_Moscow.jpg",
+        image: "assests/images/Russia_Moscow.jpg",
     },
     {
         question: "Name of the mountain range that runs through Europe?",   
         answerList: ["Andes", "Rocky", "Appalachain", "Alps",],
         answer: 3,
-        image: "assests\images\alps.jpg",
+        image: "assests/images/alps.jpg",
     
     },
     {
         question: "Which European city is further south?",
         answerList: ["Paris", "Geneva", "Oslo", "Rome",],
         answer: 3,
-        image: "assests\images\colisee-rome.jpg",
+        image: "assests/images/colisee-rome.jpg",
     
     },
     {
         question: "How many countries are located in South America?",
         answerList: ["12", "14", "8", "11",],
         answer: 0,
-        image: "assests\images\southamerica.jpg",
+        image: "assests/images/southamerica.jpg",
     
     },
     {
         question: "What is the largest county in South America?",
         answerList: ["Chile", "Argentina", "Brazil", "Columbia",],
         answer: 2,
-        image: "assests\images\Rio.jpg",
+        image: "assests/images/Rio.jpg",
     
     },
     {
         question: "Name the largest mountain in North America?",
         answerList: ["Denali", "Loveland", "Hood", "Lucania",],
         answer: 0,
-        image: "assests\images\denali-national-park-preserve.jpg",
+        image: "assests/images/denali-national-park-preserve.jpg",
     
     },
     {
         question: "What is the longest river in North America?",
         answerList: ["Mississippi", "Missouri", "Colorado", "Columbia",],
         answer: 0,
-        image: "assests\images\mississippi.jpg",
+        image: "assests/images/mississippi.jpg",
     
     },
     {
         question: "What is the larget desert in Africa?",
         answerList: ["Namib", "Kalahari", "Sahara", "Karoo",],
         answer: 2,
-        image: "assests\images\SaharaDesert.jpg",
+        image: "assests/images/SaharaDesert.jpg",
     
     },
     {
         question: "How many different languages are spoken across Africa?",
         answerList: ["50", "100", "150", "1500",],
         answer: 3,
-        image: "assests\images\africa-cruise-safari.jpg",
+        image: "assests/images/africa-cruise-safari.jpg",
     
     }
 ];
@@ -74,6 +75,8 @@ var counter = 0;
 var correctAnswers = 0;
 var wrongAnswers= 0;
 var timer = 30;
+
+console.log(questionGroup.length);
 
 function clock(){
     timer--;
@@ -84,26 +87,22 @@ function clock(){
         };
     
 };
-setInterval(clock, 1000);
+go = setInterval(clock, 1000);
 $("#timer").text("You have " + timer +" seconds.");
 
-function clickPause(){
-
-}
 
 function questionGen() {
     console.log(questionGroup[counter].question);
     $("#questions").text(questionGroup[counter].question);
-    var q1 = $("<button>").text(questionGroup[counter].answerList[0], "value", 0);
+    var q1 = $("<button>").text(questionGroup[counter].answerList[0]);
     q1.data("value", 0);
-    var q2 = $("<button>").text(questionGroup[counter].answerList[1], "value", 1);
+    var q2 = $("<button>").text(questionGroup[counter].answerList[1]);
     q2.data("value", 1);
-    var q3 = $("<button>").text(questionGroup[counter].answerList[2], "value", 2);
+    var q3 = $("<button>").text(questionGroup[counter].answerList[2]);
     q3.data("value", 2);
-    var q4 = $("<button>").text(questionGroup[counter].answerList[3], "value", 3);
+    var q4 = $("<button>").text(questionGroup[counter].answerList[3]);
     q4.data("value", 3);
    
-
 
     console.log(questionGroup[counter].answerList);
     // var answers = questionGroup[counter].answerList;
@@ -119,35 +118,43 @@ function questionGen() {
         console.log(questionGroup[counter].answer)
         if(userChoice === questionGroup[counter].answer){
             correctAnswers ++;
-            counter ++;
+            
             $("#questions").text("Right Answer!");
-            $("#answers").html("<img src = '" + questionGroup[counter].image + "/>'")
-            setInterval(questionGenReset, 3000);
-            // questionGenReset()
+            $("#answers").text(" ");
+            $("#pictures").html("<img src = '" + questionGroup[counter].answerlist + "'/>")
+            pause = setInterval(questionGenReset, 3000);
+            clearInterval(go);
+            counter ++;
+            
         
     
         } else{
             wrongAnswers++;
+            
+            $("#questions").text("Wrong Answer! The answer is " + questionGroup[counter].answerText);
+            $("#answers").text(" ");
+            $("#pictures").html("<img src = '" + questionGroup[counter].image + "'/>")
+            pause = setInterval(questionGenReset, 3000);
+            clearInterval(go);
             counter++;
-            $("#questions").text("Wrong Answer!");
-            $("#answers").html("<img src = '" + questionGroup[counter].image + "/>'")
-            setInterval(questionGenReset, 3000);
-            // questionGenReset()
         }
     });
 
 };
 
 function questionGenReset() {
+    clearInterval(pause);
+    timer = 30
+    clock();
     console.log(questionGroup[counter].question);
     $("#questions").text(questionGroup[counter].question);
-    var q1 = $("<button>").text(questionGroup[counter].answerList[0], "value", 0);
+    var q1 = $("<button>").text(questionGroup[counter].answerList[0]);
     q1.data("value", 0);
-    var q2 = $("<button>").text(questionGroup[counter].answerList[1], "value", 1);
+    var q2 = $("<button>").text(questionGroup[counter].answerList[1]);
     q2.data("value", 1);
-    var q3 = $("<button>").text(questionGroup[counter].answerList[2], "value", 2);
+    var q3 = $("<button>").text(questionGroup[counter].answerList[2]);
     q3.data("value", 2);
-    var q4 = $("<button>").text(questionGroup[counter].answerList[3], "value", 3);
+    var q4 = $("<button>").text(questionGroup[counter].answerList[3]);
     q4.data("value", 3);
    
     console.log(q1);
@@ -159,27 +166,32 @@ function questionGenReset() {
     $("#answers").append(q2);
     $("#answers").append(q3);
     $("#answers").append(q4);
+    $("#pictures").text(" ");
 
     $("button").on("click", function() {
         var userChoice = ($(this).data("value"));
         console.log(userChoice);
         console.log(questionGroup[counter].answer)
-        if(counter >= questionGroup.length){
+        if(counter === questionGroup.length){
             $("#questions").text("Correct questions: " + correctAnswers);
             $("#anwers").text("Incorrect questions: " + wrongAnswers);
+            $("#pictures").text(" ");
         } else if(userChoice === questionGroup[counter].answer){
             correctAnswers ++;
-            counter ++;
             $("#questions").text("Right Answer!");
-            $("#answers").html("<img src = '" + questionGroup[counter].image + "/>'")
-            setInterval(questionGenReset, 3000);
+            $("#answers").text(" ");
+            $("#pictures").html("<img src = '" + questionGroup[counter].image + "'/>")
+            pause = setInterval(questionGenReset, 3000);
+            clearInterval(go);
+            counter ++;
         } else{
             wrongAnswers++;
+            $("#questions").text("Wrong Answer! The answer is " + questionGroup[counter].answerText);
+            $("#answers").text(" ");
+            $("#pictures").html("<img src = '" + questionGroup[counter].image + "'/>")
+            pause = setInterval(questionGenReset, 3000);
+            clearInterval(go);
             counter++;
-            $("#questions").text("Wrong Answer!");
-            $("#answers").html("<img src = '" + questionGroup[counter].image + "/>'")
-            setInterval(questionGenReset, 3000);
-            // questionGenReset()
         }
     });  
 
