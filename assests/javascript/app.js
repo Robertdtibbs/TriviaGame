@@ -92,7 +92,11 @@ function clock(){
     $("#timer").text("You have " + timer +" seconds.");
         if(timer < 1){
             clearTimeout(timer);
-            $("#timer").text("Times Up!");
+            $("#timer").text("Times Up! You lost");
+            $("#questions").text(" ");
+            $("#answers").text(" ");
+            $("#pictures").html("<img src = assests/images/m8hfb3.jpg />");
+            setTimeout(completeReset,7000);
             // wrongAnswers++;
             // $("#answers").text(" ");
             // $("#pictures").html("<img src = '" + questionGroup[counter].image + "'/>")
@@ -232,7 +236,7 @@ function endGame() {
 
     correctAnswers = 0;                                      
     wrongAnswers = 0;
-    timer = 30;
+    timer = 15;
     counter = 0;
 
     setTimeout(completeReset,7000);
@@ -338,7 +342,11 @@ function completeReset(){
         $("#timer").text("You have " + timer +" seconds.");
             if(timer < 1){
                 clearTimeout(timer);
-                $("#timer").text("Times Up!");
+                $("#timer").text("Times Up! You lost");
+                $("#questions").text(" ");
+                $("#answers").text(" ");
+                $("#pictures").html("<img src = assests/images/m8hfb3.jpg />");
+                setTimeout(completeReset,7000);
                 // wrongAnswers++;
                 // $("#answers").text(" ");
                 // $("#pictures").html("<img src = '" + questionGroup[counter].image + "'/>")
